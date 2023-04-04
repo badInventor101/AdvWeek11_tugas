@@ -5,12 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.advweek4_kp_c.R
+import com.example.advweek4_kp_c.util.loadImage
 import com.example.advweek4_kp_c.viewmodel.DetailViewModel
 import com.example.advweek4_kp_c.viewmodel.ListViewModel
 import com.google.android.material.textfield.TextInputEditText
@@ -51,6 +53,8 @@ class StudentDetailFragment : Fragment() {
             val name = view?.findViewById<TextInputEditText>(R.id.txtIntName)
             val bod = view?.findViewById<TextInputEditText>(R.id.txtIntBod)
             val phone = view?.findViewById<TextInputEditText>(R.id.txtIntPhone)
+            val imgV = view?.findViewById<ImageView>(R.id.imageView2)
+            val prog = view?.findViewById<ProgressBar>(R.id.progressBar2)
 
 
 
@@ -58,6 +62,7 @@ class StudentDetailFragment : Fragment() {
             name?.setText(viewModel.studentLD.value?.name)
             bod?.setText(viewModel.studentLD.value?.dob)
             phone?.setText(viewModel.studentLD.value?.phone)
+            imgV?.loadImage(viewModel.studentLD.value?.photoUrl, prog!!)
         })
 
 
