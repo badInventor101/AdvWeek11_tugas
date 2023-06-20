@@ -57,7 +57,7 @@ class StudentListFragment : Fragment() {
 
     fun observeViewModel() {   /// di lihat dan di amati
         viewModel.studentsLD.observe(viewLifecycleOwner, Observer {
-            studentListAdapter.updateStudentList(it)
+            studentListAdapter.updateStudentList(it) // lari ke studentListAdapter, di update studentListnya
         })
 
         viewModel.studentLoadErrorLD.observe(viewLifecycleOwner, Observer {
